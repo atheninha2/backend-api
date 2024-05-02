@@ -1,8 +1,7 @@
 var mongoose = require("mongoose");
 
 // Obtendo os parametros passados pela linha de comando
-var userArgs = process.argv.slice(2);
-var mongoURL = userArgs[0];
+var mongoURL = process.env.DB_ACCESS;
 
 const connectDB = async () => {
   try {
