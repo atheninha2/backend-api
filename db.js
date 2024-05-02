@@ -6,6 +6,7 @@ var mongoURL = userArgs[0];
 
 const connectDB = async () => {
   try {
+    console.log(mongoURL);
     await mongoose.connect(mongoURL);
     console.log("Connect to MongoDB successfully");
   } catch (error) {
