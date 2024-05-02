@@ -4,14 +4,13 @@ var mongoose = require("mongoose");
 var userArgs = process.argv.slice(2);
 var mongoURL = userArgs[0];
 
-mongoose
-  .connect(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_CONNECT_URI);
+    console.log("Connect to MongoDB successfully");
+  } catch (error) {
+    console.log("Connect failed " + error.message);
+  }
+};
+
+module.exports = connectDB;

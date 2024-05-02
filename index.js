@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("./db");
+const connectDB = require("./db.js");
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,6 +16,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+
+connectDB();
 
 const PORT = 3000;
 
