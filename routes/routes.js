@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 module.exports = router;
 const modeloTarefa = require("../models/tarefa");
+
+router.get("/", (req, res) => res.send("Express on Vercel"));
+
 router.post("/post", async (req, res) => {
   const objetoTarefa = new modeloTarefa({
     descricao: req.body.descricao,
